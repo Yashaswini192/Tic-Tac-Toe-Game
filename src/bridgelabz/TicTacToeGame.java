@@ -1,7 +1,7 @@
 package bridgelabz;
 
 import java.util.Scanner;
-import java.util.*;
+
 
 public class TicTacToeGame {
 	
@@ -11,7 +11,7 @@ public class TicTacToeGame {
 		char[] a = new char[10];
         display(a);
         chooseLetter(a);
-      
+        showBoard(a);
     }
 	
 	public static void display(char[] a) {
@@ -45,7 +45,17 @@ public class TicTacToeGame {
 		else {
 	       System.out.println("computerplay:'X'");
 		}
-	}	
+	}
+	
+	public static void showBoard(char[] a ) {
+		
+		System.out.println(" "+a[1]+" | "+a[2]+" | "+a[3]+" ");
+		System.out.println("-------------");
+		System.out.println(" "+a[1]+" | "+a[2]+" | "+a[3]+" ");
+		System.out.println("-------------");
+		System.out.println(" "+a[1]+" | "+a[2]+" | "+a[3]+" ");
+	
+	}
 }
 	
 	
