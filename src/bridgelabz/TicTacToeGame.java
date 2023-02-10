@@ -68,7 +68,10 @@ public class TicTacToeGame {
 			System.out.print("enter X or O:");
 			a[9] = s.next().charAt(0);;
 			break;
+		default:
+			System.out.println("enter the correct index number");
 		}
+		
 	}
 
 	/*public static void chooseLetter(char[] a) {
