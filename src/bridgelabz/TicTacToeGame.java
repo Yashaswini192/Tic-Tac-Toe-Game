@@ -1,95 +1,48 @@
 package bridgelabz;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToeGame {
 
+	static String[] a = new String[10];
+	 static String  playLetter = null;
+	static  Scanner s = new Scanner(System.in);
+	 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		char[] a = new char[10];
-
-		showBoard(a);
-		display(a);
-		//chooseLetter(a);
-		showBoard(a);
-	}
-
-	public static void display(char[] a) {
-		Scanner s = new Scanner(System.in);
-		//a[0]=0;
-		a[1] = ' ';
-		a[2] = ' ';
-		a[3] = ' ';
-		a[4] = ' ';
-		a[5] = ' ';
-		a[6] = ' ';
-		a[7] = ' ';
-		a[8] = ' ';
-		a[9] = ' ';
-
-		System.out.println("enter index number from 1 to 9:");
-		String userinput = s.nextLine();
-
-		switch(userinput) {
-		case "1":
-			System.out.print("enter X or O:");
-			a[1] = s.next().charAt(0);
-			break;
-		case "2":
-			System.out.print("enter X or O:");
-			a[2] = s.next().charAt(0);;
-			break;
-		case "3":
-			System.out.print("enter X or O:");
-			a[3] = s.next().charAt(0);;
-			break;
-		case "4":
-			System.out.print("enter X or O:");
-			a[4] = s.next().charAt(0);;
-			break;
-		case "5":
-			System.out.print("enter X or O:");
-			a[5] = s.next().charAt(0);;
-			break;
-		case "6":
-			System.out.print("enter X or O:");
-			a[6] = s.next().charAt(0);;
-			break;
-		case "7":
-			System.out.print("enter X or O:");
-			a[7] = s.next().charAt(0);;
-			break;
-		case "8":
-			System.out.print("enter X or O:");
-			a[8] = s.next().charAt(0);;
-			break;
-		case "9":
-			System.out.print("enter X or O:");
-			a[9] = s.next().charAt(0);;
-			break;
-		default:
-			System.out.println("enter the correct index number");
-		}
 		
+		UC1();
+		UC2();
+		UC4();
+	
+	
 	}
 
-	/*public static void chooseLetter(char[] a) {
+	 public static void UC1(){
 
-		Scanner t = new Scanner(System.in);
-		char player;
-		System.out.println("player enter X or O:");
-		player = t.next().toUpperCase().charAt(0);
-		if(player == 'X') 
-		{
-			System.out.println("computerplay:'O'");
-		}
-		else {
-			System.out.println("computerplay:'X'");
-		}
-	}*/
+	        for(int i = 1; i< a.length; i++){
+	            a[i] = String.valueOf(i);
+	        }
+	    }
 
-	public static void showBoard (char a[]) {
+	public static void UC2() {
+
+		System.out.println("Please choose your letter for playing (X or O) \ntype letter & press enter");
+        playLetter = s.next();
+        if(playLetter.equals("x") ){
+            System.out.println("You choose X \nnow computer will play with O");
+        } else if(playLetter.equals("o")){
+            System.out.println("You choose O \nnow computer will play with X");
+        }else{
+            System.out.println("Invalid Input \n");
+            UC2();
+        }
+
+    }
+
+	
+	public static void UC3ShowBoard () {
 
 		System.out.println("TIC-TAC-TOE-GAME:");
 		System.out.println(" " + (a[1]) + " | " + (a[2]) + " | " + (a[3]) + " ");
@@ -99,8 +52,36 @@ public class TicTacToeGame {
 		System.out.println(" " + (a[7]) + " | " + (a[8]) + " | " + (a[9]) + " ");
 
 	}
+	
+	 public static void UC4(){
+	        System.out.println("");
+	        UC3ShowBoard();
+	        System.out.println("Enter a slot number to Enter "+playLetter);
+	        int input = s.nextInt();
+	        if(a[input].equals(String.valueOf(input))) {
+
+	            switch (input) {
+	                case 1, 2, 3, 4, 5, 6, 7, 8, 9:
+	                    a[input] = playLetter;
+	                UC3ShowBoard();
+	                    break;
+	                default:
+	                    System.out.println("Invalid slot Number. please Enter valid slot Number");
+	                    UC4();
+	                    break;
+
+	            }
+	        } else{
+	            System.out.println("Slot already used");
+	            UC4();
+	        }
+	        UC4();
+
+
+	    }
 
 }
+
 
 
 
