@@ -9,6 +9,7 @@ public class TicTacToeGame {
 	static String  playLetter = null;
 	static  Scanner s = new Scanner(System.in);
 	static int toss = 0;
+	static int stop = 0;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -21,6 +22,10 @@ public class TicTacToeGame {
 		}else{
 			System.out.println("you Lost the toss Computer will make 1st move");
 		}
+		  while(stop ==0) {
+	            UC4();
+	            UC7();
+	        }
 
 	}
 
@@ -90,6 +95,59 @@ public class TicTacToeGame {
 
 	}
 
+	 public static void UC7(){
+	        for (int i = 0; i < 8; i++) {
+	            String line = null;
+
+	            switch (i) {
+	                case 0:
+	                    line = a[1] + a[2] + a[3];
+	                    break;
+	                case 1:
+	                    line = a[4] + a[5] + a[6];
+	                    break;
+	                case 2:
+	                    line = a[7] + a[8] + a[9];
+	                    break;
+	                case 3:
+	                    line = a[1] + a[4] + a[7];
+	                    break;
+	                case 4:
+	                    line = a[2] + a[5] + a[8];
+	                    break;
+	                case 5:
+	                    line = a[3] + a[6] + a[9];
+	                    break;
+	                case 6:
+	                    line = a[1] + a[5] + a[9];
+	                    break;
+	                case 7:
+	                    line = a[3] + a[5] + a[7];
+	                    break;
+	            }
+	            if (line.equals("xxx")) {
+	                if(playLetter.equals("x")){
+	                    System.out.println("you won the game");
+	                    stop = 1;
+	                } else{
+	                    System.out.println("Computer won the game");
+	                    stop = 1;
+	                }
+
+	            }else if (line.equals("ooo")) {
+	                if(playLetter.equals("o")){
+	                    System.out.println("you won the game");
+	                    stop = 1;
+	                } else{
+	                    System.out.println("Computer won the game");
+	                    stop = 1;
+	                }
+
+	            }
+	        }
+
+	    }
+	
 }
 
 
